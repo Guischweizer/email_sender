@@ -24,7 +24,7 @@ email_sender-*.tar
 
 # Ignore assets that are produced by build tools.
 /priv/static/assets/
-
+.env_sample
 # Ignore digested assets cache.
 /priv/static/cache_manifest.json
 

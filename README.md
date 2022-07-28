@@ -1,4 +1,19 @@
 # EmailSender
+## To start run:
+ - `docker-compose up -d`
+ - `mix deps.get`
+ - `mix ecto.setup`
+ - `mix phx.server`
+
+### Routes
+ - POST `/api/welcome-mail` body: `{email_to: ["emails"]}`
+ 
+## It's necessary to export those variables with the correct information in order to the SMTP works:
+  - `export SMTP_HOST=SMTP_HOST`
+  - `export SMTP_PORT=SMTP_PORT`
+  - `export SMTP_USERNAME=SMTP_USERNAME`
+  - `export SMTP_PASSWORD=SMTP_PASSWORD`
+
 
 To start your Phoenix server:
 
