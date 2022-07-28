@@ -5,8 +5,8 @@ defmodule EmailSenderWeb.PageController do
     render(conn, "index.html")
   end
 
-  def send_email(conn, _params) do
-    EmailSender.welcome_email("umemail")
+  def send_email(conn, %{"email_to" => email_to}) do
+    EmailSender.welcome_email(email_to)
 
     conn
     |> put_status(:ok)

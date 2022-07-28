@@ -24,7 +24,6 @@ config :email_sender, EmailSenderWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-IO.inspect(System.get_env("SMTP_HOST"))
 
 config :email_sender, EmailSender.Mailer,
   adapter: Bamboo.SMTPAdapter,

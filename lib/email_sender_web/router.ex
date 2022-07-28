@@ -12,20 +12,22 @@ defmodule EmailSenderWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug :fetch_session
+    plug :fetch_flash
   end
 
   scope "/", EmailSenderWeb do
     pipe_through :browser
 
     get "/", PageController, :index
-
-    get "/welcome-mail", PageController, :send_email
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", EmailSenderWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", EmailSenderWeb do
+    pipe_through :api
+
+    post "/welcome-mail", PageController, :send_email
+  end
 
   # Enables LiveDashboard only for development
   #
