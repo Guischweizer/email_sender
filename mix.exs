@@ -7,7 +7,6 @@ defmodule EmailSender.MixProject do
       version: "0.1.0",
       elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps()
@@ -50,7 +49,8 @@ defmodule EmailSender.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:bamboo, "~> 2.1.0"},
-      {:bamboo_smtp, "~> 4.0.1"}
+      {:bamboo_smtp, "~> 4.0.1"},
+      {:dotenv_parser, "~> 2.0"}
     ]
   end
 

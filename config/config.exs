@@ -24,19 +24,15 @@ config :email_sender, EmailSenderWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
+IO.inspect(System.get_env("SMTP_HOST"))
+
 config :email_sender, EmailSender.Mailer,
   adapter: Bamboo.SMTPAdapter,
-  server: "SERVER",
-  hostname: "SERVER",
-  port: 2525,
-  username: "USERNAME",
-  password: "PASSWORD",
-  tls: :always,
-  allowed_tls_versions: [:tlsv1, :"tlsv1.1", :"tlsv1.2"],
-  ssl: false,
-  retries: 1,
-  no_mx_lookups: false,
-  auth: :if_available
+  server: System.get_env("SMTP_HOST"),
+  # hostname: System.get_env("SMTP_HOST"),
+  port: System.get_env("SMTP_PORT"),
+  username: System.get_env("SMTP_USERNAME"),
+  password: System.get_env("SMTP_PASSWORD")
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false
